@@ -1,5 +1,59 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+
+function generateMarkdown(data) {
+  const licenseBadge = renderLicenseBadge(data.license);
+  const licenseLink = renderLicenseLink(data.license);
+  const licenseSection = renderLicenseSection(data.license)
+
+  return `
+  
+  # ${data.title}
+  
+  ${licenseBadge}
+  
+  ## Description
+  ${data.description}
+  
+  ## Table of Contents
+  1. [Description](#description)
+  2. [installation](#installation) 
+  3. [usage](#usage)
+  4. [license](#license)
+  5. [contributing](#contributing)
+  6. [tests](#tests)
+  7. [contact](#contact)
+  
+  ## Installation
+  
+  ${data.installation}
+  
+  ## Usage
+  
+  ${data.usage}
+  
+  ## License
+  
+  ${licenseSection} ${licenseLink}
+  
+  ## Contributing
+  
+  ${data.contributing}
+  
+  ## Tests
+  
+  ${data.tests}
+  
+  ## Contact
+
+  Please reach out if you have any questions:
+
+  Github [${data.github}](https://github.com/${data.github})
+  Email: ${data.email}
+  `;
+
+}
+
 function renderLicenseBadge (license) {
   switch (license) {
     case 'MIT':
@@ -29,34 +83,10 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
-  // If no license is provided, return an empty string
-  if (!license) {
+function renderLicenseSection(license, badge, link) {
+  if (!license || !badge || !link) {
     return '';
   }
+};
 
-  // Get the license badge and link based on the selected license
-  const badge = renderLicenseBadge(license);
-  const link = renderLicenseLink(license);
-
-  // Return the formatted license section
-  return `
-## License
-This project is licensed under the ${license} License.
-
-${badge}
-${link}
-  `;
-}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  const licenseBadge = renderLicenseBadge(data.license);
-  const licenseLink = renderLicenseLink(data.license);
-  const licenseSection = renderLicenseSection(data.license);
-  return `# ${data.title}
- ${licenseBadge}
-  ${licenseLink}
-  ${licenseSection}
-`;
-}
+export default generateMarkdown;
