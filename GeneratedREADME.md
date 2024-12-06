@@ -23,6 +23,7 @@
   ## Usage
   
   after install type node index.js into your terminal then simply follow the prompts
+  see demo here: https://www.dropbox.com/scl/fi/j1zcro69d7wxo0fcz2ypc/README-Screen-Recording-2024-12-05-at-5.42.16-PM.mov?rlkey=s6m3avewzc8muge6noxman94g&st=t1p9t5oh&dl=0
   
   ## License
   
