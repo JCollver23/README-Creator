@@ -60,7 +60,7 @@ const questions = [
         const readmeContent = generateMarkdown(answers);
     
         // Write the content to the README.md file
-        fs.writeFile('README.md', readmeContent, (err) => {
+        fs.writeFile('GeneratedREADME.md', readmeContent, (err) => {
           if (err) {
             console.log('Error creating README.md:', err);
           } else {
